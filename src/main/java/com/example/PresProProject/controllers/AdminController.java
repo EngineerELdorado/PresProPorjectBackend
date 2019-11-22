@@ -45,7 +45,7 @@ public class AdminController {
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
     @GetMapping("/login")
-    public ResponseEntity<?> login(Admin admin){
+    public ResponseEntity<?> login(@RequestBody Admin admin){
         Admin found = adminRepository.findByUsername(admin.getUsername());
         if (found==null){
             apiResponse.setResponseCode("01");
